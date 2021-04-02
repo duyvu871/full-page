@@ -612,7 +612,7 @@ body {
     padding-bottom: 4rem;
   }
   .subscribe_form {
-    width: fit-content;
+    width: max-content;
   }
   .subscribe_btn {
     padding-left: 2rem;
