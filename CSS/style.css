@@ -611,6 +611,9 @@ body {
     flex-wrap: wrap;
     padding-bottom: 4rem;
   }
+  .subscribe_input {
+    width: 100%;
+  }
   .subscribe_form {
     width: 100%;
   }
