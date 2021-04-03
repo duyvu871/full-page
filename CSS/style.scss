@@ -53,6 +53,9 @@ body{
     &_inner{
        @include flex(center, space-between)
     }
+    &_menu{
+        height: auto;
+    }
     &-icon{
         &-menu{
             display: none;
@@ -76,7 +79,7 @@ body{
     }
     &_checkedBox{
         display: none;
-        &:checked + .header_menu ul{
+        &:checked ~ .header_menu ul{
             @include flex(flex-start,flex-start,wrap,column);
             padding: 0;
             .header_menu-items{
@@ -84,7 +87,25 @@ body{
                 margin-top: 3rem;
                 margin-right: 50%;
             }
-            
+        }
+        &:checked ~ .header_menu {
+            height: 65rem;
+        }
+        &:checked + .header-icon-menu {
+            .header-icon-bar{
+                transform: rotatey(180deg) rotatex(360deg);
+                &:first-child {
+                  transform: rotate(-45deg);
+                  margin-top: 20px;
+                }
+                &:nth-child(2) {
+                  opacity: 0;
+                }
+                &:nth-child(3) {
+                  margin-top: -24px;
+                  transform: rotate(45deg);
+                }
+            }
         }
     }
     &_menu{
@@ -167,6 +188,85 @@ body{
     }
     &--shadow{
         box-shadow:  0 6px 20px -5px $primary-color;
+    }
+}
+.main{
+    margin-top: 10rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+   &_container{
+       @include flex(flex-start,center,wrap,column);
+   }
+   &_image,&-img{
+       margin: auto;
+   }
+   &-img{
+       width: 50%;
+   }
+   &_title{
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+   }
+   &_description{
+        font-size: 1.4rem;
+        font-weight: 300;
+        margin-bottom: 4rem;
+        line-height: 1.8rem;
+    }
+    &_intro{
+        &-list{
+            padding: 0;
+        }
+        &-items{
+            font-weight: 600;
+            font-size: 1.5rem;
+            text-decoration: underline;
+            margin-bottom: 3rem;
+            cursor: pointer;
+            &--circle{
+                text-decoration: none;
+                position: relative;
+                padding-left: 2rem;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 3rem;
+                    background-color: gray;
+                    transform: translateX(-50%);
+                }
+                &:nth-child(2)::before{
+                    background-color: rgb(62, 77, 216);
+                }
+                &:nth-child(3)::before{
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
+    &_footer{
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        @include flex(flex-start,flex-start,wrap,row);
+        .author{
+            &_image{
+                width: 10%;
+                border-radius: 50%;
+            }
+            &_name{
+                margin: auto;
+                margin-left: 1rem;
+            }
+            &_content{
+                font-size: 1.4rem;
+            font-weight: 300;
+            }
+        }
+        
     }
 }
 .category{
@@ -596,6 +696,9 @@ body{
             flex-wrap: wrap;
             padding-bottom: 4rem;
         }
+        &_input{
+            width: 100%;
+        }
         &_form{
             width: 100%;
         }
@@ -659,6 +762,7 @@ body{
         }
     }
 }
+
 
 
 
